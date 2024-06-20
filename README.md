@@ -1,4 +1,7 @@
-# React + TypeScript + Vite
+# Feedback App with React + TypeScript + Zustand
+
+![image](https://github.com/Arcandres/feedback-app/assets/2945504/e4885132-c537-415a-9d76-cbc198802375)
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
