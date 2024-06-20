@@ -515,6 +515,7 @@ form button span::selection {
   border-radius: 500px;
   cursor: pointer;
   transition: all 0.2s;
+  text-transform: capitalize;
 }
 
 .hashtags li button:hover,
