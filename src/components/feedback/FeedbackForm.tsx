@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { MAX_CHARACTERS } from '../../lib/constants';
+import { useFeedbackItemsStore } from '../../store/feedbackItemsStore';
 
-type FeedbackFormProps = {
-  addToList: (text: string) => void;
-};
-
-export default function FeedbackForm({ addToList }: FeedbackFormProps) {
+export default function FeedbackForm() {
   const [text, setText] = useState('');
   const [formValid, setFormValid] = useState(false);
   const [formInvalid, setFormInvalid] = useState(false);
+  const addItemToList = useFeedbackItemsStore(state => state.addItemToList)
 
   const chartCount = MAX_CHARACTERS - text.length;
 
@@ -33,7 +31,7 @@ export default function FeedbackForm({ addToList }: FeedbackFormProps) {
       return
     }
 
-    addToList(text);
+    addItemToList(text);
     setText('');
   };
 

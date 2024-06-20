@@ -1,21 +1,22 @@
+import { TFeedbackItem } from '../../lib/types';
+import { useFeedbackItemsStore } from '../../store/feedbackItemsStore';
 import HashtagItem from './HashtagItem';
 
-type HashtagListProps = {
-  setSelectedCompany: (companyName: string) => void;
-  companyNames: Set<string>;
-};
+const companyNames = new Set<string>();
 
-export default function HashtagList({
-  setSelectedCompany,
-  companyNames,
-}: HashtagListProps) {
+export default function HashtagList() {
+  const feedbackItems = useFeedbackItemsStore(state => state.feedbackItems)
+  const selectCompany = useFeedbackItemsStore(state => state.selectCompany)
+  
+  feedbackItems.forEach((item: TFeedbackItem) => companyNames.add(item.company));
+
   return (
     <ul className='hashtags'>
       {[...companyNames].map((companyName) => (
         <HashtagItem
           key={companyName}
           companyName={companyName}
-          onSelectCompany={setSelectedCompany}
+          onSelectCompany={selectCompany}
         />
       ))}
     </ul>
