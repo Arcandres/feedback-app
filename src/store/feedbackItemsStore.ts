@@ -16,7 +16,7 @@ export const useFeedbackItemsStore = create<TStore>((set, get) => ({
     const newItem: TFeedbackItem = {
       id: crypto.randomUUID(),
       text: text,
-      upvoteCount: 600,
+      upvoteCount: 0,
       company: companyName,
       daysAgo: 0,
       badgeLetter:
